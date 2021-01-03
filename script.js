@@ -34,3 +34,26 @@ bottomLine.addEventListener("input", (e) => {
 	bottomLineText = e.target.value;
 	drawMeme(image, topLineText, bottomLineText);
 });
+
+function drawMeme(image, topLine, bottomLine) {
+	context.clearRect(0, 0, canvas.width, canvas.height);
+
+	context.font = "32px Impact";
+	context.fillStyle = "white";
+	context.strokeStyle = "black";
+	context.lineWidth = 3;
+	context.textAlign = "center";
+
+	if (image !== null) {
+		context.drawImage(image, 0, 0, canvas.width, canvas.height);
+	}
+
+	if (topLine !== null) {
+		context.fillText(topLine, canvas.width / 2, 60);
+		context.strokeText(topLine, canvas.width / 2, 60);
+	}
+	if (bottomLine !== null) {
+		context.fillText(bottomLine, canvas.width / 2, canvas.height - 60);
+		context.strokeText(bottomLine, canvas.width / 2, canvas.height - 60);
+	}
+}
