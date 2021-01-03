@@ -24,3 +24,13 @@ selectImage.addEventListener("change", (e) => {
 		};
 	};
 });
+
+topLine.addEventListener("input", (e) => {
+	topLineText = e.target.value;
+	drawMeme(image, topLineText, bottomLineText);
+});
+
+bottomLine.addEventListener("input", (e) => {
+	bottomLineText = e.target.value;
+	drawMeme(image, topLineText, bottomLineText);
+});
