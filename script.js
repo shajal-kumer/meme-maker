@@ -57,3 +57,14 @@ function drawMeme(image, topLine, bottomLine) {
 		context.strokeText(bottomLine, canvas.width / 2, canvas.height - 60);
 	}
 }
+
+download.addEventListener("click", downloadMem);
+
+function downloadMem() {
+	const img = canvas.toDataURL("image/png");
+	download.href = img;
+	download.download = "my-image.png";
+
+	topLine.value = "";
+	bottomLine.value = "";
+}
