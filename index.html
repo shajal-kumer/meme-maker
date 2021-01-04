@@ -21,16 +21,48 @@
                     <canvas class="c" width="600" height="600"></canvas>
                 </div>
                 <div class="column">
-                    
-                    <label for="topline">Choose Image:</label>
+
+                    <label>Choose Image:</label>
                     <input type="file" class="selectimage">
-                    <label for="topline">Top Line:</label>
+                    <label>Choose Text Fill Color:</label>
+                    <input type="color" class="fill-color" value="#ffffff">
+                    <label>Choose Text Stroke Color:</label>
+                    <input type="color" class="stroke-color" value="#000000">
+                    <label>Choose Font Family:</label>
+                    <select class="font-family">
+                        <option value="Impact">Impact</option>
+                        <option value="Arial">Arial</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Helvetica">Helvetica</option>
+                        <option value="14">Optima</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Consolas">Consolas</option>
+                        <option value="Monaco">Monaco</option>
+                        <option value="Comic Sans MS">Comic Sans MS</option>
+                        <option value="Consolas">Consolas</option>
+                    </select>
+                    <label>Choose Font Size:</label>
+                    <select class="font-size">
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="12">12</option>
+                        <option value="14">14</option>
+                        <option value="18">18</option>
+                        <option value="24">24</option>
+                        <option value="36" selected>36</option>
+                        <option value="48">48</option>
+                        <option value="64">64</option>
+                    </select>
+
+                    <label>Top Line:</label>
                     <input type="text" class="topline">
                     <br>
                     <label for="bottomline">Bottom Line:</label>
                     <input type="text" class="bottomline">
 
-                    <a href="#" class="button button-outline download">Download</a>
+                    <a href="#"
+                        class="button button-outline download">Download</a>
                 </div>
                 <div class="column">
                     <div class="result"></div>
