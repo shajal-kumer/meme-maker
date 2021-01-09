@@ -22,32 +22,7 @@ let fontSizeValue = "36";
 // Event Listenners
 
 // 1st process the image and create new image
-selectImage.addEventListener("change", (e) => {
-	// create a new object for file reader
-	const reader = new FileReader();
-
-	// get the file link
-	const file = e.target.files[0];
-
-	// read the file
-	reader.readAsDataURL(file);
-
-	// after load the file --> create new image
-	reader.onload = function (e) {
-		const data = e.target.result;
-
-		// create a new object for image
-		image = new Image();
-		// set the src of image
-		image.src = data;
-
-		// after load the image draw the image on canvas
-		image.onload = function () {
-			// after load image --> draw the image in canvas
-			drawMeme(this, null, null);
-		};
-	};
-});
+selectImage.addEventListener("change", imageHandle);
 
 // handle the topline input text
 topLine.addEventListener("input", (e) => {
@@ -83,9 +58,37 @@ fontSize.addEventListener("change", (e) => {
 });
 
 // download handler listerner
-download.addEventListener("click", downloadMem);
+download.addEventListener("click", imageDownloadHandle);
 
 // functions
+
+// image handler function
+function imageHandle(e) {
+	// create a new object for file reader
+	const reader = new FileReader();
+
+	// get the file link
+	const file = e.target.files[0];
+
+	// read the file
+	reader.readAsDataURL(file);
+
+	// after load the file --> create new image
+	reader.onload = function (e) {
+		const data = e.target.result;
+
+		// create a new object for image
+		image = new Image();
+		// set the src of image
+		image.src = data;
+
+		// after load the image draw the image on canvas
+		image.onload = function () {
+			// after load image --> draw the image in canvas
+			drawMeme(this, null, null);
+		};
+	};
+}
 
 // draw meme function
 function drawMeme(image, topLine, bottomLine) {
@@ -112,7 +115,7 @@ function drawMeme(image, topLine, bottomLine) {
 	}
 }
 
-function downloadMem() {
+function imageDownloadHandle() {
 	// get the canvas as image data url
 	const img = canvas.toDataURL("image/png");
 	download.href = img;
